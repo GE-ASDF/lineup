@@ -1,0 +1,12 @@
+/* Importação do CSS global */
+
+@import "global/global.css";
+
+/* Importação do CSS da página Index */
+
+@import "page/header.css";
+@import "page/main.css";
+@import "page/footer.css";
+
+/* Importação dos utilitários */
+@import "utilities/utilities.css"

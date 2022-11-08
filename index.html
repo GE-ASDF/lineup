@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exercício de JavaScript da OneBitCode - Escalação de jogadores">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Escalação de jogadores</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <header id="indexHeader">
+
+            <section>
+
+                <div class="header pad-15">
+                    <h1>ASDF</h1>
+                    <nav class="containerMenu">
+                        <ul class="headerMenu">
+                            <li><a href="#escalar" data-acao="escalar">Escalar jogador</a></li>
+                            <li><a href="#escalacao" data-acao="escalacao">Escalação</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </section>
+
+        </header>
+        <main id="indexMain">
+
+            <section id="escalacao">
+
+            </section>
+
+        </main>
+
+        <footer id="indexFooter">
+            <p> &copy; Anderson Souza</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/escalacao.js"></script>
+    <script>
+
+        const headerMenu = document.querySelector(".headerMenu");
+        const escalacaoContainer = document.getElementById("escalacao");
+
+        function createUlElement(){
+            const ul = document.createElement("ul");
+            return ul;
+        }
+
+        function createLiElement(){
+            const li = document.createElement("li");
+            return li;
+        }
+
+        function createElementsOfLineUp(escalacaoContainer, {camisa, nome, posicao}){
+            const ul = createUlElement();
+            const li = createLiElement();
+            ul.style.marginLeft = '15px'
+
+            li.innerText = `
+                Jogador: ${nome}
+                Nº camisa: ${camisa}
+                Posição: ${posicao}
+            `
+            ul.appendChild(li)
+            escalacaoContainer.append(ul);
+        }
+
+        function iEscalacao(escalacao){
+            
+            escalacao.forEach(escalado =>{
+                if(escalado.camisa && escalado.nome && escalado.posicao){
+                    createElementsOfLineUp(escalacaoContainer, escalado);
+                }
+            })
+            
+        }
+
+        function eventMenuClick(e){
+            const clickedButton = e.target.dataset.acao;
+            if(clickedButton.toLowerCase() === "escalacao"){
+                escalacaoContainer.innerHTML = '';
+                iEscalacao(escalacao);
+            }else if(clickedButton.toLowerCase() === "escalar"){
+                escalacaoContainer.innerHTML = '';
+            }
+        }
+
+        headerMenu.addEventListener("click", eventMenuClick)
+
+    </script>
+</body>
+</html>
