@@ -5,8 +5,8 @@ function setToLocalStorage(data){
     localStorage.setItem("data", dataString);
 }
 
-function getForLocalStorage(){
-    let data = JSON.parse(localStorage.getItem('data'));
+function getForLocalStorage(nameKey){
+    let data = JSON.parse(localStorage.getItem(nameKey));
     return data;
 }
 
@@ -17,6 +17,7 @@ dataAcaoes.forEach(dataAcao =>{
             case 0:
                 break;
             case 1:
+                acoes[acao].escalar();
                 break;
             case 2:
                 acoes[acao].save(e);

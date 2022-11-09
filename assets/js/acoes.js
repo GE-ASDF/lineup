@@ -1,7 +1,20 @@
 let arrayData = [];
 const acoes = [
     {},
-    {},
+    {
+        escalar(){
+            let containerEscalacao = document.querySelector("#escalacao")
+            containerEscalacao.innerHTML = ''
+            let data = getForLocalStorage('data');
+            data.forEach((i)=>{
+                containerEscalacao.innerText +=`
+                Nome: ${i.nome}
+                Nº camisa: ${i.camisa}
+                Posição: ${i.posicao}
+                `
+            })
+        }
+    },
     {
         save(e){
             e.preventDefault();
@@ -17,7 +30,7 @@ const acoes = [
                 }
             })
 
-            if(obj.nome === undefined && obj.camisa === undefined && obj.posicao === undefined){
+            if(obj.nome === undefined || obj.camisa === undefined || obj.posicao === undefined){
                 return alert("Preencha todos os dados para continuar.")
             }else{
                 let confirmacao = confirm("Você deseja salvar os dados abaixo? \n"
@@ -32,7 +45,6 @@ const acoes = [
             }
 
             setToLocalStorage(arrayData)
-
         }
     }
 ]
