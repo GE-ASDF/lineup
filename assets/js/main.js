@@ -15,9 +15,10 @@ dataAcaoes.forEach(dataAcao =>{
         let acao = Number(e.target.dataset.acao);
         switch(acao){
             case 0:
+                acoes[acao].escalar();
                 break;
             case 1:
-                acoes[acao].escalar();
+                acoes[acao].escalacao();
                 break;
             case 2:
                 acoes[acao].save(e);

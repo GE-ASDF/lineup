@@ -1,10 +1,16 @@
 let arrayData = [];
 const acoes = [
-    {},
     {
         escalar(){
+            let containerEscalar= document.querySelector("#escalar")
+            containerEscalar.classList.toggle("block")
+        }
+    },
+    {
+        escalacao(){
             let containerEscalacao = document.querySelector("#escalacao")
             containerEscalacao.innerHTML = ''
+            containerEscalacao.classList.toggle("block")
             let data = getForLocalStorage('data');
             data.forEach((i)=>{
                 containerEscalacao.innerText +=`
