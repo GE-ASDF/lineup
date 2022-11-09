@@ -20,8 +20,8 @@
                     <h1>ASDF</h1>
                     <nav class="containerMenu">
                         <ul class="headerMenu">
-                            <li><a href="#escalar" data-acao="escalar">Escalar jogador</a></li>
-                            <li><a href="#escalacao" data-acao="escalacao">Escalação</a></li>
+                            <li><a href="#escalar"   data-acao="0">Escalar jogador</a></li>
+                            <li><a href="#escalacao" data-acao="1">Escalação</a></li>
                         </ul>
                     </nav>
 
@@ -32,9 +32,32 @@
         </header>
         <main id="indexMain">
 
-            <section id="escalacao">
+            <div class="resultado">
 
-            </section>
+                <section id="escalar">
+                    <h1>Escalar jogador</h1>
+                    <form method="post">
+                        <div class="containerInput">
+                            <label for="name">Nome do jogador:</label>
+                            <input type="text" id="nome" name="nome" class="input">
+                        </div>
+                        <div class="containerInput">
+                            <label for="nCamisa">Nº camisa:</label>
+                            <input type="text" id="camisa" name="camisa" class="input">
+                        </div>
+                        <div class="containerInput">
+                            <label for="posicao">Posição do jogador:</label>
+                            <input type="text" id="posicao" name="posicao" class="input">
+                        </div>
+                        <button data-acao="2" class="btn" id="save">Salvar</button>
+                    </form>
+                </section>
+
+                <section id="escalacao">
+                    
+                </section>
+
+            </div>
 
         </main>
 
@@ -42,59 +65,7 @@
             <p> &copy; Anderson Souza</p>
         </footer>
     </div>
-
-    <script src="assets/js/escalacao.js"></script>
-    <script>
-
-        const headerMenu = document.querySelector(".headerMenu");
-        const escalacaoContainer = document.getElementById("escalacao");
-
-        function createUlElement(){
-            const ul = document.createElement("ul");
-            return ul;
-        }
-
-        function createLiElement(){
-            const li = document.createElement("li");
-            return li;
-        }
-
-        function createElementsOfLineUp(escalacaoContainer, {camisa, nome, posicao}){
-            const ul = createUlElement();
-            const li = createLiElement();
-            ul.style.marginLeft = '15px'
-
-            li.innerText = `
-                Jogador: ${nome}
-                Nº camisa: ${camisa}
-                Posição: ${posicao}
-            `
-            ul.appendChild(li)
-            escalacaoContainer.append(ul);
-        }
-
-        function iEscalacao(escalacao){
-            
-            escalacao.forEach(escalado =>{
-                if(escalado.camisa && escalado.nome && escalado.posicao){
-                    createElementsOfLineUp(escalacaoContainer, escalado);
-                }
-            })
-            
-        }
-
-        function eventMenuClick(e){
-            const clickedButton = e.target.dataset.acao;
-            if(clickedButton.toLowerCase() === "escalacao"){
-                escalacaoContainer.innerHTML = '';
-                iEscalacao(escalacao);
-            }else if(clickedButton.toLowerCase() === "escalar"){
-                escalacaoContainer.innerHTML = '';
-            }
-        }
-
-        headerMenu.addEventListener("click", eventMenuClick)
-
-    </script>
+    <script src="./assets/js/acoes.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

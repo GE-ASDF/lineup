@@ -1,0 +1,21 @@
+#escalar{
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+.containerInput{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+.containerInput label{
+    font-size: 18px;
+}
+#escalar form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input{
+    font-size: 24px;
+}
